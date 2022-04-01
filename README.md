@@ -1,5 +1,5 @@
-Install dependencies:
-npm install
+## Install dependencies:
+### npm install
 
-Integrate Postgres: TODO
-Implement bulk upload and update:  TODO
+## Integrate Postgres: TODO
+## Implement bulk upload and update:  TODO
