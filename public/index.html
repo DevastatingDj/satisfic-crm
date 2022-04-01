@@ -1,0 +1,31 @@
+<html>
+  <title>
+    CRM API
+  </title>
+  <body>
+    `GET /leads` - Returns a list of `Lead` objects in the database, paginated. The query params for pagination can be of your choice.
+    <br>
+`GET /leads/{id}` - Returns a `Lead` object with the specific lead id supplied as path param.
+<br>
+`POST /leads` - Send a JSON request body for lead creation with `Lead` objects. Returns status `201 created` on successful creation, or status `409 conflict` on duplication.
+<br>
+`POST /leads/bulk` - Send a CSV file as request body with `Lead` objects. Returns a JSON object with the stats of the bulk upload, e.g.
+<br>
+```json<br>
+{<br>
+	"created": 230,<br>
+	"duplicates": 46,<br>
+	"error": 12,<br>
+	"report": "{base_url}/reports/{uuid}"<br>
+}<br>
+```
+<br>
+The `report` key contains a link which can be used to download a `CSV` which contains all the error and duplicated records, so that the user can easily modify, fix and upload it back quickly.
+<br>
+`PATCH /leads/{id}` - For updating any field of a particular `Lead` object.
+<br>
+`PATCH /leads/bulk` - For updating any field of a list of `Lead` objects, defined by the `id` field in the request body. The `id` field should be an array of `Lead` object ids.
+<br>
+`DELETE /leads/{id}` - Delete a particular lead.
+  </body>
+</html>
